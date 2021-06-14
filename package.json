@@ -9,7 +9,7 @@
     "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["dom", "print", "pdf", "page-break", "toc"],
   "author": "Mason Bourgeois",
   "license": "ISC",
   "devDependencies": {
