@@ -147,7 +147,7 @@ function drawDebug() {
   });
 }
 
-export default function Dullahan(debug = false) {
+export default function Index(debug = false) {
   DEBUG = debug;
   const toc = document.getElementById("table-of-contents");
   if (!toc) return;
