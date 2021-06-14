@@ -27,6 +27,7 @@ function comparePosition(a: HTMLElement, b: HTMLElement) {
   if (position & Node.DOCUMENT_POSITION_FOLLOWING) return "after";
   if (position & Node.DOCUMENT_POSITION_PRECEDING) return "before";
   if (position & Node.DOCUMENT_POSITION_CONTAINS) return "contains";
+  return ""
 }
 
 function offset(el: HTMLElement) {
@@ -48,7 +49,7 @@ function addStyle(styles: string) {
 }
 
 function getVisibleBreaks() {
-  return Array.from(document.querySelectorAll(".break, .page")).filter(
+  return Array.from(document.querySelectorAll<HTMLElement>(".break, .page")).filter(
     (el) => getComputedStyle(el).display !== "none"
   );
 }
@@ -72,7 +73,7 @@ function getBreakOffset(breakEl: HTMLElement, yOffset = 0) {
 }
 
 function findPageNumber(element: HTMLElement): string {
-  const precedingBreaks = getVisibleBreaks().filter((node: HTMLElement) =>
+  const precedingBreaks = getVisibleBreaks().filter((node) =>
     ["before", "contains"].includes(comparePosition(element, node))
   );
 
@@ -103,11 +104,16 @@ function mockBreaks() {
 function drawTOC(element: HTMLElement) {
   element.innerHTML = `
   <ol>
-    ${Array.from(document.querySelectorAll("[data-section]"))
-      .map((el: HTMLElement) => {
+    ${Array.from(document.querySelectorAll<HTMLElement>("[data-section]"))
+      .map((el) => {
         const id =
           el.dataset.section ||
-          el.textContent.toLowerCase().replace(/\s/g, "-");
+          el.textContent?.toLowerCase().replace(/\s/g, "-");
+        
+        if (!id) {
+          throw new Error("You must provide a section title in the element, or an id in the data-section attribute.")
+        }
+        
         el.id = id;
         return `
       <li>
@@ -150,10 +156,14 @@ export default function Dullahan(debug = false) {
   document.body.style.width = `${pageWidthPx}px`;
   drawTOC(toc);
 
-  const pageNumbers = document.querySelectorAll(".page-number[data-page]");
-  pageNumbers.forEach((element: HTMLElement) => {
+  const pageNumbers = document.querySelectorAll<HTMLElement>(".page-number[data-page]");
+  pageNumbers.forEach((element) => {
     const { page } = element.dataset;
+    if (typeof page === "undefined") throw new Error("Provide a value to the data-page attribute.")
+
     const reference = document.getElementById(page);
+    if (!reference) throw new Error("Table of contents scaffolding failed.")
+
     element.textContent = findPageNumber(reference);
   });
 
