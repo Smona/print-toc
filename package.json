@@ -1,6 +1,6 @@
 {
   "name": "print-toc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generates a table of contents for a printed HTML document.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,6 +12,7 @@
   "keywords": ["dom", "print", "pdf", "page-break", "toc"],
   "author": "Mason Bourgeois",
   "license": "ISC",
+  "repository": "github:Smona/print-toc",
   "devDependencies": {
     "typescript": "^4.3.2"
   }
