@@ -1,12 +1,12 @@
 {
   "name": "print-toc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generates a table of contents for a printed HTML document.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublish": "npm run build",
+    "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["dom", "print", "pdf", "page-break", "toc"],
