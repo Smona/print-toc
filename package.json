@@ -1,14 +1,15 @@
 {
   "name": "dullahan",
   "version": "1.0.0",
-  "description": "",
+  "description": "Generates a table of contents for a printed HTML document.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mason Bourgeois",
   "license": "ISC"
 }

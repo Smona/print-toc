@@ -1,6 +1,6 @@
 # Dullahan
 
-Generates a table of contents for a printed document.
+Generates a table of contents for a printed HTML document.
 
 ### Usage
 
