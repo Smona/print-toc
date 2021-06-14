@@ -1,5 +1,5 @@
 {
-  "name": "dullahan",
+  "name": "print-toc",
   "version": "1.0.0",
   "description": "Generates a table of contents for a printed HTML document.",
   "main": "dist/index.js",
@@ -11,5 +11,8 @@
   },
   "keywords": [],
   "author": "Mason Bourgeois",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  }
 }

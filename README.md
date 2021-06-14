@@ -1,13 +1,17 @@
-# Dullahan
+# print-toc
 
 Generates a table of contents for a printed HTML document.
 
 ### Usage
 
+```ts
+import generateTOC from "print-toc";
+```
+
 1. Add an element to the page with the id `table-of-contents`.
 2. Add a `data-section` attribute to any headings you want to be included.
    If you want a custom section ID, pass it as a value to `data-section`.
-3. Call Dullahan in the page.
+3. Call `generateTOC` in the page.
 
 A clickable table of contents will then be inserted into `#table-of-contents`.
 
@@ -25,7 +29,7 @@ break before the element.
 ### Requirements
 
 Since we have no way of accessing the print layout from JS-land,
-a few requirements must be met for Dullahan to properly compute
+a few requirements must be met to properly compute
 page numbers:
 
 - Do not modify the margin or padding of `.break` or `.page` elements.
@@ -44,5 +48,3 @@ Pass `true` as an argument to enable debug mode. This will print more detailed
 spacing information in the table of contents, display red dividers at computed
 page boundaries, and insert vertical margins in the page to show the page breaks
 expected by the script.
-
-NB: "Dullahan" means [headless horseman](https://en.wikipedia.org/wiki/Dullahan)

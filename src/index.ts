@@ -147,7 +147,7 @@ function drawDebug() {
   });
 }
 
-export default function Index(debug = false) {
+export default function generateTOC(debug = false) {
   DEBUG = debug;
   const toc = document.getElementById("table-of-contents");
   if (!toc) return;
