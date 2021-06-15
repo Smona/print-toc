@@ -1,6 +1,6 @@
 {
   "name": "print-toc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generates a table of contents for a printed HTML document.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

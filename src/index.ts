@@ -8,7 +8,10 @@ const STYLES = `
     margin-top: -1px;
   }
   .page {
+    position: relative;
+    page-break-after: auto;
     page-break-inside: avoid;
+    display: block;
   }
   .break {
     page-break-before: always;
